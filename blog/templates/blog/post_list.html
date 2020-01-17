@@ -15,21 +15,17 @@
     <div class="content container">
       <div class="row">
         <div class="col-md-8">
-          <div class="post">
-            <div class="date">
-              <p>公開日: 2014/06/14, 12:14</p>
+          <!-- データベースから取り出した投稿を1つずつ繰り返し処理する。 -->
+          <!-- 投稿の公開日やタイトル、本文を入れたHTMLを作る -->
+          {% for post in posts %}
+            <div class="post">
+              <div class="date">
+                <p>公開日: {{ post.published_date }}</p>
+              </div>
+              <h2><a href="">{{ post.title }}</a></h2>
+              <p>{{ post.text|linebreaksbr }}</p>
             </div>
-            <h2><a href="">最初の投稿</a></h2>
-            <p>こんにちは！ よろしくお願いします！ </p>
-          </div>
-
-          <div class="post">
-            <div class="date">
-              <p>公開日: 2014/06/14, 12:14</p>
-            </div>
-            <h2><a href="">2番目の投稿</a></h2>
-            <p> こんにちは！ よろしくお願いします！ </p>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
