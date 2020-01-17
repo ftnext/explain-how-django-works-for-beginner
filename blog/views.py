@@ -1,12 +1,7 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def post_list(request):
-    # 引数requestはHttpRequest（Django流のHTTPリクエストの扱い方）
-    # request.methodでHTTPメソッドを確認できる
-    if request.method == 'GET':
-        # HttpResponseはDjango流のHTTPレスポンスの扱い方
-        # メッセージ本文を指定して，HttpResponseを返す（→ブラウザに表示される）
-        return HttpResponse('GETリクエストへのレスポンスです')
-    else:
-        return HttpResponse('レスポンスです')
+    # 指定したテンプレート（HTML）をメッセージ本文に入れた
+    # HTTPレスポンス（HttpResponse）を、render関数で作って返す
+    return render(request, 'blog/post_list.html', {})
